@@ -23,3 +23,11 @@ OBS - om servern startas om och en port redan används av systemet visas ett fel
 
 Ge följande kommando för att avbrta processen
 `taskkill /F /IM node.exe`
+
+# Ge ett svar med html - inte bara vanlig text...
+mimetype
+
+# Filer
+För att skicka innehåll som finns i en fil - ex index.html, krävs att servern kan läsa innehållet från en fil... med core modulen fs
+
+Skapa en fil som servern ska kunna läsa - ofta en mapp namngiven *public* eller *public_html*
