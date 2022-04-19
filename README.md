@@ -14,3 +14,6 @@ Starta server med kommando:
 Vid felmeddelande så beror det på att ES6 använder moduler
 - lägg till följande i package.json
 "type": "module",
+
+Starta om server genom att först avbryta med CTRL+C, därefter starta: 
+`node server`
