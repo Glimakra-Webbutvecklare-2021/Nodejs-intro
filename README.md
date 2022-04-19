@@ -17,3 +17,9 @@ Vid felmeddelande så beror det på att ES6 använder moduler
 
 Starta om server genom att först avbryta med CTRL+C, därefter starta: 
 `node server`
+
+OBS - om servern startas om och en port redan används av systemet visas ett felmeddelande i stil med
+`...listen EADDRINUSE...` 
+
+Ge följande kommando för att avbrta processen
+`taskkill /F /IM node.exe`

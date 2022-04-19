@@ -7,7 +7,7 @@ const port = 3000;
 
 // create server
 const server = http.createServer((req, res) => {
-    console.log(req, res);
+    // console.log(req, res);
 
     // response
     res.statusCode = 200;
