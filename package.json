@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-intro",
+  "version": "1.0.0",
+  "description": "`npm init`",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Glimakra-Webbutvecklare-2021/Nodejs-intro.git"
+  },
+  "author": "andsju",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Glimakra-Webbutvecklare-2021/Nodejs-intro/issues"
+  },
+  "homepage": "https://github.com/Glimakra-Webbutvecklare-2021/Nodejs-intro#readme"
+}
