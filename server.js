@@ -9,10 +9,10 @@ const port = 3000;
 const server = http.createServer((req, res) => {
     // console.log(req, res);
 
-    // response
+    // response - use mime types
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.write('Hello world');
+    res.setHeader('Content-Type', 'text/html');
+    res.write('<h1>Hello world</h1><p>Webserver says <i>hello</i></p>');
     res.end();
 });
 
