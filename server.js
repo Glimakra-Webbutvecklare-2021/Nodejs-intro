@@ -47,7 +47,24 @@ const server = http.createServer((req, res) => {
             res.statusCode = 200;
 
             // todo - set mimetype from file extension, not just 'text/html'...
-            res.setHeader('Content-Type', 'text/html');
+            // 1 find out file extension using core module path, and some array methods to strip leading dot....    .html => html
+            // .html => html
+            // const fileExtension = path.extname(filePath);
+            const fileExtension = path.extname(filePath).split(".").pop();
+            console.log("fileExtension:", fileExtension);
+
+            // 2 serve media type using object property
+            const mimeTypes = {
+                html: "text/html",
+                htm: "text/html",
+                css: "text/css",
+                js: "text/javascript",
+                png: "image/png"
+            }
+
+            const contentType = mimeTypes[fileExtension] || "application/octet-stream";
+            // res.setHeader('Content-Type', 'text/html');
+            res.setHeader('Content-Type', contentType);
             res.end(content);
         }
     });
