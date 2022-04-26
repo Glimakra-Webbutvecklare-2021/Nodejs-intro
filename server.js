@@ -4,6 +4,11 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 
+// use my own modules, utilities
+import {getContentType} from './libraries/utils.js';
+
+
+
 // set port number
 const port = 3000;
 
@@ -42,7 +47,8 @@ const server = http.createServer((req, res) => {
         if (error) {
             console.log('Error:', error);
             res.statusCode = 404;
-            res.end();
+            res.setHeader('Content-Type', 'text/html');
+            res.end('<h1>Sorry - 404</h1><p>Page not found - <a href="/">Perhaps you should try start page</a></p>');
         } else {
             res.statusCode = 200;
 
@@ -53,18 +59,8 @@ const server = http.createServer((req, res) => {
             const fileExtension = path.extname(filePath).split(".").pop();
             console.log("fileExtension:", fileExtension);
 
-            // 2 serve media type using object property
-            const mimeTypes = {
-                html: "text/html",
-                htm: "text/html",
-                css: "text/css",
-                js: "text/javascript",
-                png: "image/png"
-            }
-
-            const contentType = mimeTypes[fileExtension] || "application/octet-stream";
-            // res.setHeader('Content-Type', 'text/html');
-            res.setHeader('Content-Type', contentType);
+            // res.setHeader('Content-Type', contentType);
+            res.setHeader('Content-Type', getContentType(fileExtension));
             res.end(content);
         }
     });
