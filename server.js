@@ -7,6 +7,7 @@ import path from 'path';
 // use my own modules, utilities
 import { getContentType } from './libraries/utils.js';
 import routeEmAll from './libraries/route-em-all.js';
+import postEmAll from './libraries/post-em-all.js';
 
 // set port number
 const port = 3000;
@@ -14,7 +15,12 @@ const port = 3000;
 // create server
 const server = http.createServer((req, res) => {
 
-    // console.log(req.url);
+    // console.log(req.url, req.method);
+
+    // posts...
+    if (req.method === "POST") {
+        postEmAll.handle(req, res);
+    }
 
     let filePath = routeEmAll.handle(req);
     
@@ -28,15 +34,7 @@ const server = http.createServer((req, res) => {
             res.end('<h1>Sorry - 404</h1><p>Page not found - <a href="/">Perhaps you should try start page</a></p>');
         } else {
             res.statusCode = 200;
-
-            // todo - set mimetype from file extension, not just 'text/html'...
-            // 1 find out file extension using core module path, and some array methods to strip leading dot....    .html => html
-            // .html => html
-            // const fileExtension = path.extname(filePath);
-            const fileExtension = path.extname(filePath).split(".").pop();
-            console.log("fileExtension:", fileExtension);
-
-            res.setHeader('Content-Type', getContentType(fileExtension));
+            res.setHeader('Content-Type', getContentType(filePath));
             res.end(content);
         }
     });

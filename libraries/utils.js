@@ -1,5 +1,11 @@
+// dependencies
+import path from 'path';
+
 // handle mime types
-export function getContentType(fileExtension) {
+export function getContentType(filePath) {
+
+    const fileExtension = path.extname(filePath).split(".").pop();
+    // console.log("fileExtension:", fileExtension);
 
     // 2 serve media type using object property
     const mimeTypes = {
@@ -14,7 +20,5 @@ export function getContentType(fileExtension) {
         webp: "image/webp"
     }
 
-    const contentType = mimeTypes[fileExtension] || "application/octet-stream";
-    
-    return contentType;
+    return mimeTypes[fileExtension] || "application/octet-stream";
 }

@@ -12,10 +12,14 @@ function handle(req) {
 
         case '/':
 
-            // index.html
             filePath += 'index.html';
             break;
 
+        case '/contact':
+
+            filePath += 'contact.html';
+            break;
+    
         default:
 
             // serve file
