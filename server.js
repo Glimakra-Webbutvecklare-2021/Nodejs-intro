@@ -5,9 +5,8 @@ import fs from 'fs';
 import path from 'path';
 
 // use my own modules, utilities
-import {getContentType} from './libraries/utils.js';
-
-
+import { getContentType } from './libraries/utils.js';
+import routeEmAll from './libraries/route-em-all.js';
 
 // set port number
 const port = 3000;
@@ -17,30 +16,8 @@ const server = http.createServer((req, res) => {
 
     // console.log(req.url);
 
-    // default folder
-    let filePath = '/public/';
-
-    // handle requests
-    switch (req.url) {
-
-        case '/':
-
-            // index.html
-            filePath += 'index.html';
-
-            break;
-
-        default:
-
-            // serve file
-            filePath += req.url;
-
-            break;
-    }
-
-    // use path module
-    filePath = path.normalize(path.resolve() + filePath);
-
+    let filePath = routeEmAll.handle(req);
+    
     // use fs to read from filesystem...
     fs.readFile(filePath, (error, content) => {
 
@@ -59,7 +36,6 @@ const server = http.createServer((req, res) => {
             const fileExtension = path.extname(filePath).split(".").pop();
             console.log("fileExtension:", fileExtension);
 
-            // res.setHeader('Content-Type', contentType);
             res.setHeader('Content-Type', getContentType(fileExtension));
             res.end(content);
         }
