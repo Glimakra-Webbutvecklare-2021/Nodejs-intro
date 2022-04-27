@@ -1,11 +1,11 @@
 # Nodejs-intro
 
-# Initiera ett nytt Node.js projekt med npm init
+
+Initiera ett nytt Node.js projekt
 `npm init`
 
 Se till att skapa en fil som motsvaras av namnet - entry point - den fil som startar webbservern, ex:
 server.js
-
 Se dokumentation i server.js
 
 Starta server med kommando:
@@ -24,10 +24,20 @@ OBS - om servern startas om och en port redan används av systemet visas ett fel
 Ge följande kommando för att avbrta processen
 `taskkill /F /IM node.exe`
 
-# Ge ett svar med html - inte bara vanlig text...
-mimetype
+#### Branch 1-hello
+Visa texten Hello World
 
-# Filer
-För att skicka innehåll som finns i en fil - ex index.html, krävs att servern kan läsa innehållet från en fil... med core modulen fs
+#### Branch 2-html
+Skicka html
 
-Skapa en fil som servern ska kunna läsa - ofta en mapp namngiven *public* eller *public_html*
+#### Branch 3-file
+Skicka innehållet från en html fil - läs fil från filsystem 
+
+#### Branch 4-mime
+Skicka innehåll med rätt innehållstyp
+
+#### Branch 5-module
+Skapa kodblock i form av moduler, se över filstruktur
+
+#### Branch 6-post
+Använd metoden POST via formulär, spara som json till fil
