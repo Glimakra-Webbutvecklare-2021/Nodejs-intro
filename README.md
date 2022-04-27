@@ -1,11 +1,11 @@
 # Nodejs-intro
 
-# Initiera ett nytt Node.js projekt med npm init
+
+Initiera ett nytt Node.js projekt
 `npm init`
 
 Se till att skapa en fil som motsvaras av namnet - entry point - den fil som startar webbservern, ex:
 server.js
-
 Se dokumentation i server.js
 
 Starta server med kommando:
@@ -23,3 +23,6 @@ OBS - om servern startas om och en port redan används av systemet visas ett fel
 
 Ge följande kommando för att avbrta processen
 `taskkill /F /IM node.exe`
+
+#### Branch 1-hello
+Visa texten Hello World
